@@ -1,10 +1,3 @@
-
-#self.head = node(none,none,tail)
-#tail = node(none, head, none)
-#curr = tail
-# head = Node(none, none, Node(none, head, None))
-
-
 from audioop import reverse
 from itertools import count
 
@@ -38,30 +31,17 @@ class DLL:
             variable = variable.next
         return counter
 
-#h - x - y - n - t
-
     def insert(self, value):
         self.curr.prev.next = Node(value, self.curr.prev, self.curr)
         self.curr.prev = self.curr.prev.next
         self.curr = self.curr.prev
-        # self.next = self.head
-        # self.head = DLL(value, self.head, self.next)
-        # n = DLL(value, self.head, self.head.next)
-        # n.next.prev = n
-        # self.head.next = n
-
-    # def rremove(self):
-    #     self.head.next = self.head.next.next
-    #     self.head.next.prev = self.head
-
+        
     def remove(self):
         if self.curr == self.head or self.curr == self.tail:
             return
         self.curr.prev.next = self.curr.next
         self.curr.next.prev = self.curr.prev
         self.curr = self.curr.next
-        # self.head = self.head.next
-        # return self.head
 
     def get_value(self):
         if self.curr == self.tail or self.curr == self.head:
@@ -72,9 +52,6 @@ class DLL:
         if self.curr.next == self.tail:
             return
         self.curr = self.curr.next
-
-        # self.head = self.next
-        # self.head = DLL(self.head, self.next.prev, self.head.next.next)
 
     def move_to_prev(self):
         if self.curr.prev == self.head:
@@ -122,7 +99,6 @@ class DLL:
 
     def sort(self):
         num_of_swaps = 1000
-        #variable = self.head.next
         while num_of_swaps != 0:
             num_of_swaps = 0
             current = self.head.next
@@ -130,9 +106,6 @@ class DLL:
             if current == self.tail or current.next.next == self.tail:
                 return
 
-            # elif current.next == self.tail:
-            #     current = self.head.next
-            #     continue
             while current.next != self.tail:
                 if current.data > current.next.data:
                     temp = current.data
@@ -141,23 +114,3 @@ class DLL:
                     num_of_swaps += 1
             
                 current = current.next
-          
-                
-                
-                
-                #     if(current.data > index.data):    
-                #         temp = current.data;    
-                #         current.data = index.data;    
-                #         index.data = temp;    
-                #         index = index.next    
-                #         current = current.next    
-
-
-                # temp = variable.next.next
-                # variable.next.next = variable
-                
-                # variable.prev = variable.next
-                # variable.next = variable.next.next
-                # variable.next
-
-
